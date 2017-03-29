@@ -23,6 +23,36 @@ public class Assignment
         Grade = grade;
     }
 
+    public void SetStudentID(long id)
+    {
+        StudentID = id;
+    }
+
+    public long GetStudentID()
+    {
+        return StudentID;
+    }
+
+    public void SetProblemID(long id)
+    {
+        ProblemID = id;
+    }
+
+    public long GetProblemID()
+    {
+        return ProblemID;
+    }
+
+    public void SetGrade(int grade)
+    {
+        Grade = grade;
+    }
+
+    public int GetGrade()
+    {
+        return Grade;
+    }
+
     public void read()
     {
         Scanner reader = new Scanner(System.in);

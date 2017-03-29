@@ -21,6 +21,26 @@ public class Problem
         Requirement = requirement;
     }
 
+    public void SetID(long id)
+    {
+        ID = id;
+    }
+
+    public long GetID()
+    {
+        return ID;
+    }
+
+    public void SetRequirement(String requirement)
+    {
+        Requirement = requirement;
+    }
+
+    public String GetRequirement()
+    {
+        return Requirement;
+    }
+
     public void read()
     {
         Scanner reader = new Scanner(System.in);

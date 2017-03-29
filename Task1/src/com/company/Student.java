@@ -24,6 +24,36 @@ public class Student
         Name = name;
     }
 
+    public void SetID(long id)
+    {
+        ID = id;
+    }
+
+    public long GetID()
+    {
+        return ID;
+    }
+
+    public void SetGroup(char group)
+    {
+        Group = group;
+    }
+
+    public char GetGroup()
+    {
+        return Group;
+    }
+
+    public void SetName(String name)
+    {
+        Name = name;
+    }
+
+    public String GetName()
+    {
+        return Name;
+    }
+
     public void read()
     {
         Scanner reader = new Scanner(System.in);
