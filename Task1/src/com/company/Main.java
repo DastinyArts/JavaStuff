@@ -24,18 +24,21 @@ public class Main
                 {
                     student.read();
                     students.add(student);
+                    student = new Student();
                     break;
                 }
                 case 2:
                 {
                     problem.read();
                     problems.add(problem);
+                    problem = new Problem();
                     break;
                 }
                 case 3:
                 {
                     assignment.read();
                     assignments.add(assignment);
+                    assignment = new Assignment();
                     break;
                 }
                 case 4:
@@ -48,7 +51,7 @@ public class Main
 
                     for(int i = 0; i < students.size(); i++)
                     {
-                        System.out.print("\nStudent " + i + 1);
+                        System.out.print("\n\nStudent " + (i+1));
                         students.get(i).print();
                     }
 
@@ -64,7 +67,7 @@ public class Main
 
                     for(int i = 0; i < problems.size(); i++)
                     {
-                        System.out.print("\nProblem " + i + 1);
+                        System.out.print("\n\nProblem " + (i+1));
                         problems.get(i).print();
                     }
 
@@ -74,13 +77,13 @@ public class Main
                 {
                     if(assignments.isEmpty())
                     {
-                        System.out.println("\nThere are no Assignments.");
+                        System.out.println("\n\nThere are no Assignments.");
                         break;
                     }
 
                     for(int i = 0; i < assignments.size(); i++)
                     {
-                        System.out.print("\nAssignment " + i + 1);
+                        System.out.print("\nAssignment " + (i+1));
                         assignments.get(i).print();
                     }
 
