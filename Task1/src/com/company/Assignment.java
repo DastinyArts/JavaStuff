@@ -1,4 +1,5 @@
 package com.company;
+import java.util.Scanner;
 
 /**
  * Created by lubu on 3/28/2017.
@@ -20,6 +21,20 @@ public class Assignment
         StudentID = studentid;
         ProblemID = problemid;
         Grade = grade;
+    }
+
+    public void read()
+    {
+        Scanner reader = new Scanner(System.in);
+
+        System.out.print("\nStudent ID: ");
+        StudentID = reader.nextLong();
+
+        System.out.print("\nProblem ID: ");
+        ProblemID = reader.nextLong();
+
+        System.out.print("\nGrade: ");
+        Grade = reader.nextInt();
     }
 
     public void print()

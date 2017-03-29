@@ -1,55 +1,95 @@
 package com.company;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main
 {
     public static void main(String[] args)
     {
-        long studentid, problemid;
-        char group;
-        String name, requirement;
+        Scanner reader = new Scanner(System.in);
+        Student student = new Student();
+        Problem problem = new Problem();
+        Assignment assignment = new Assignment();
 
-        Student student1 = new Student();
-        Student student2 = new Student();
-        Problem problem1 = new Problem();
-        Assignment assignment1 = new Assignment();
+        Vector<Student> students = new Vector();
+        Vector<Problem> problems = new Vector();
+        Vector<Assignment> assignments = new Vector();
 
-        Scanner sc = new Scanner(System.in);
+        System.out.print("1.Add a Student\n2.Add a Problem\n3.Add an Assignment\n4.List of Students\n5.List of Problems\n6.List of Assignments\n");
 
+        while(true)
+        {
+            switch(reader.nextInt())
+            {
+                case 1:
+                {
+                    student.read();
+                    students.add(student);
+                    break;
+                }
+                case 2:
+                {
+                    problem.read();
+                    problems.add(problem);
+                    break;
+                }
+                case 3:
+                {
+                    assignment.read();
+                    assignments.add(assignment);
+                    break;
+                }
+                case 4:
+                {
+                    if(students.isEmpty())
+                    {
+                        System.out.println("\nThere are no Students.");
+                        break;
+                    }
 
-        System.out.print("Problem ID: ");
-        problemid = sc.nextLong();
+                    for(int i = 0; i < students.size(); i++)
+                    {
+                        System.out.print("\nStudent " + i + 1);
+                        students.get(i).print();
+                    }
 
-        System.out.print("Requirement: ");
-        requirement = sc.next();
+                    break;
+                }
+                case 5:
+                {
+                    if(problems.isEmpty())
+                    {
+                        System.out.println("\nThere are no Problems.");
+                        break;
+                    }
 
-        problem1.Problem(problemid, requirement);
+                    for(int i = 0; i < problems.size(); i++)
+                    {
+                        System.out.print("\nProblem " + i + 1);
+                        problems.get(i).print();
+                    }
 
+                    break;
+                }
+                case 6:
+                {
+                    if(assignments.isEmpty())
+                    {
+                        System.out.println("\nThere are no Assignments.");
+                        break;
+                    }
 
-        System.out.print("Student Name: ");
-        name = sc.next();
+                    for(int i = 0; i < assignments.size(); i++)
+                    {
+                        System.out.print("\nAssignment " + i + 1);
+                        assignments.get(i).print();
+                    }
 
-        System.out.print("Group: ");
-        group = sc.next().charAt(0);
+                    break;
+                }
 
-        System.out.print("Student ID: ");
-        studentid = sc.nextLong();
-
-        student1.Student(studentid, group, name);
-        assignment1.Assignment(studentid, problemid, 3);
-
-
-        System.out.print("Student Name: ");
-        name = sc.next();
-
-        System.out.print("Group: ");
-        group = sc.next().charAt(0);
-
-        System.out.print("Student ID: ");
-        studentid = sc.nextLong();
-
-        student2.Student(studentid, group, name);
-        assignment1.Assignment(studentid, problemid, 10);
+                default: System.out.println("\nInvalid option, please select one that is listed above."); break;
+            }
+        }
 
     }
 }
