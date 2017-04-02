@@ -1,10 +1,11 @@
 package com.company;
+import java.io.Serializable;
 import java.util.Scanner;
 
 /**
  * Created by lubu on 3/28/2017.
  */
-public class Problem
+public class Problem implements Serializable
 {
     private long ID;
     private String Requirement;

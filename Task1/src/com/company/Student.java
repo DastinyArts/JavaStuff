@@ -1,10 +1,11 @@
 package com.company;
+import java.io.Serializable;
 import java.util.Scanner;
 
 /**
  * Created by Student on 3/28/2017.
  */
-public class Student
+public class Student implements Serializable
 {
     private long ID;
     private char Group;
