@@ -58,13 +58,13 @@ public class Assignment implements Serializable
     {
         Scanner reader = new Scanner(System.in);
 
-        System.out.print("\nStudent ID: ");
+        System.out.print("Student ID: ");
         StudentID = reader.nextLong();
 
-        System.out.print("\nProblem ID: ");
+        System.out.print("Problem ID: ");
         ProblemID = reader.nextLong();
 
-        System.out.print("\nGrade: ");
+        System.out.print("Grade: ");
         Grade = reader.nextInt();
     }
 

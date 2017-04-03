@@ -59,13 +59,13 @@ public class Student implements Serializable
     {
         Scanner reader = new Scanner(System.in);
 
-        System.out.print("\nStudent Name: ");
+        System.out.print("Student Name: ");
         Name = reader.next();
 
-        System.out.print("\nStudent ID: ");
+        System.out.print("Student ID: ");
         ID = reader.nextLong();
 
-        System.out.print("\nGroup: ");
+        System.out.print("Group: ");
         Group = reader.next().charAt(0);
     }
 

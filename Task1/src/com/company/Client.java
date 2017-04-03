@@ -2,8 +2,8 @@ package com.company;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Vector;
 
 /**
  * Created by lubu on 4/1/2017.
@@ -15,10 +15,6 @@ public class Client
         Student student = new Student();
         Problem problem = new Problem();
         Assignment assignment = new Assignment();
-
-        Vector<Student> students = new Vector();
-        Vector<Problem> problems = new Vector();
-        Vector<Assignment> assignments = new Vector();
 
         Socket socket = new Socket("localhost", 4141);
 
@@ -46,6 +42,9 @@ public class Client
 
                     outputStream.flush();
                     student = new Student();
+
+                    System.out.print("Student Successfully Added!\n");
+
                     break;
                 }
 
@@ -56,6 +55,9 @@ public class Client
 
                     outputStream.flush();
                     problem = new Problem();
+
+                    System.out.print("Problem Successfully Added!\n");
+
                     break;
                 }
 
@@ -66,78 +68,64 @@ public class Client
 
                     outputStream.flush();
                     assignment = new Assignment();
+
+                    System.out.print("Assignment Successfully Added!\n");
+
                     break;
                 }
 
                 case 4:
                 {
-                    students.addAll((Vector<Student>) inStream.readObject());
+                    int size = inStream.readInt();
 
-                    if(students.isEmpty())
+                    if(size > 0)
                     {
-                        System.out.println("\nThere are no Students.");
-                        break;
+                        for (int i = 0; i < size; i++)
+                        {
+                            System.out.print("Student Number " + (i+1) + "\n\nStudent Name: " + inStream.readObject() + "\nStudent ID: " + inStream.readObject() + "\nGroup: " + inStream.readObject() + "\n");
+                        }
                     }
-
-                    for(int i = 0; i < students.size(); i++)
+                    else
                     {
-                        System.out.print("\nStudent Number " + (i+1));
-                        student = students.get(i);
-                        student.print();
+                        System.out.print("There are no Students.\n");
                     }
-
-                    student = new Student();
-                    students.removeAllElements();
-
-                    System.out.print("\n");
                     break;
                 }
 
                 case 5:
                 {
-                    problems.addAll((Vector<Problem>) inStream.readObject());
+                    int size = inStream.readInt();
 
-                    if(problems.isEmpty())
+                    if(size > 0)
                     {
-                        System.out.println("\nThere are no Problems.");
-                        break;
+                        for (int i = 0; i < size; i++)
+                        {
+                            System.out.print("Problem Number " + (i+1) + "\n\nProblem ID: " + inStream.readObject() + "\nRequirement: " + inStream.readObject() + "\n");
+                        }
+                    }
+                    else
+                    {
+                        System.out.print("There are no Problems.\n");
                     }
 
-                    for(int i = 0; i < problems.size(); i++)
-                    {
-                        System.out.print("\nProblem Number " + (i+1));
-                        problem = problems.get(i);
-                        problem.print();
-                    }
-
-                    problem = new Problem();
-                    problems.removeAllElements();
-
-                    System.out.print("\n");
                     break;
                 }
 
                 case 6:
                 {
-                    problems.addAll((Vector<Problem>) inStream.readObject());
+                    int size = inStream.readInt();
 
-                    if(assignments.isEmpty())
+                    if(size > 0)
                     {
-                        System.out.println("\nThere are no Assignments.");
-                        break;
+                        for (int i = 0; i < size; i++)
+                        {
+                            System.out.print("Assignment Number " + (i+1) + "\n\nStudent ID: " + inStream.readObject() + "\nProblem ID: " + inStream.readObject() + "\nGrade: " + inStream.readObject() + "\n");
+                        }
                     }
-
-                    for(int i = 0; i < assignments.size(); i++)
+                    else
                     {
-                        System.out.print("\nAssignment Number " + (i+1));
-                        assignment = assignments.get(i);
-                        assignment.print();
+                        System.out.print("There are no Assignments.\n");
                     }
-
-                    assignment = new Assignment();
-
-                    System.out.print("\n");
-                    assignments.removeAllElements();
 
                     break;
                 }
@@ -147,32 +135,32 @@ public class Client
                     System.out.print("\nSelect the number of the student you want to delete: ");
                     outputStream.writeInt(s.nextInt());
                     outputStream.flush();
-                    System.out.print("\nSuccessfully deleted.\n");
+                    System.out.print("Successfully deleted.\n");
 
                     break;
                 }
 
                 case 8:
                 {
-                    System.out.print("\nSelect the number of the problem you want to delete: ");
+                    System.out.print("Select the number of the problem you want to delete: ");
                     outputStream.writeInt(s.nextInt());
                     outputStream.flush();
-                    System.out.print("\nSuccessfully deleted.\n");
+                    System.out.print("Successfully deleted.\n");
 
                     break;
                 }
 
                 case 9:
                 {
-                    System.out.print("\nSelect the number of the assignment you want to delete: ");
+                    System.out.print("Select the number of the assignment you want to delete: ");
                     outputStream.writeInt(s.nextInt());
                     outputStream.flush();
-                    System.out.print("\nSuccessfully deleted.\n");
+                    System.out.print("Successfully deleted.\n");
 
                     break;
                 }
 
-                default: System.out.println("\nInvalid option, please select one that is listed above."); break;
+                default: System.out.println("Invalid option, please select one that is listed above.\n"); break;
             }
         }
     }

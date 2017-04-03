@@ -46,11 +46,11 @@ public class Problem implements Serializable
     {
         Scanner reader = new Scanner(System.in);
 
-        System.out.print("\nProblem ID: ");
+        System.out.print("Problem ID: ");
         ID = reader.nextLong();
 
-        System.out.print("\nRequirement: ");
-        Requirement = reader.nextLine();
+        System.out.print("Requirement: ");
+        Requirement = reader.next();
     }
 
     public void print()

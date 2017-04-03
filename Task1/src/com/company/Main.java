@@ -15,9 +15,11 @@ public class Main
 
 
         //Assignment stuff
-        Vector<Student> students = new Vector();
-        Vector<Problem> problems = new Vector();
-        Vector<Assignment> assignments = new Vector();
+        ArrayList<Student> students = new ArrayList();
+        ArrayList<Problem> problems = new ArrayList();
+        ArrayList<Assignment> assignments = new ArrayList();
+
+
 
         while(true)
         {
@@ -33,20 +35,49 @@ public class Main
 
                 case 4:
                 {
-                    outputStream.writeObject(students);
+                    int size = students.size();
+
+                    outputStream.writeInt(size);
                     outputStream.flush();
+
+                    for(int i = 0; i < size; i++)
+                    {
+                        outputStream.writeObject(students.get(i).GetName());
+                        outputStream.writeObject(students.get(i).GetID());
+                        outputStream.writeObject(students.get(i).GetGroup());
+                        outputStream.flush();
+                    }
                 } break;
 
                 case 5:
                 {
-                    outputStream.writeObject(problems);
+                    int size = problems.size();
+
+                    outputStream.writeInt(size);
                     outputStream.flush();
+
+                    for(int i = 0; i < size; i++)
+                    {
+                        outputStream.writeObject(problems.get(i).GetID());
+                        outputStream.writeObject(problems.get(i).GetRequirement());
+                        outputStream.flush();
+                    }
                 } break;
 
                 case 6:
                 {
-                    outputStream.writeObject(assignments);
+                    int size = assignments.size();
+
+                    outputStream.writeInt(size);
                     outputStream.flush();
+
+                    for(int i = 0; i < size; i++)
+                    {
+                        outputStream.writeObject(assignments.get(i).GetStudentID());
+                        outputStream.writeObject(assignments.get(i).GetProblemID());
+                        outputStream.writeObject(assignments.get(i).GetGrade());
+                        outputStream.flush();
+                    }
                 } break;
 
                 case 7:
@@ -54,7 +85,7 @@ public class Main
                     if(!students.isEmpty())
                     {
                         int index = inStream.readInt();
-                        students.removeElementAt(index - 1);
+                        students.remove(index - 1);
                     }
                 } break;
 
@@ -63,7 +94,7 @@ public class Main
                     if(!problems.isEmpty())
                     {
                         int index = inStream.readInt();
-                        problems.removeElementAt(index - 1);
+                        problems.remove(index - 1);
                     }
                 } break;
 
@@ -72,7 +103,7 @@ public class Main
                     if(!assignments.isEmpty())
                     {
                         int index = inStream.readInt();
-                        assignments.removeElementAt(index - 1);
+                        assignments.remove(index - 1);
                     }
                 } break;
 
